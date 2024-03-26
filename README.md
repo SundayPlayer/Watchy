@@ -1,66 +1,31 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Watchy
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Watchy est une plateforme de partage de liens et de commentaires conçue pour faciliter la veille collaborative entre groupes d'utilisateurs. Avec Watchy, vous pouvez créer des groupes, inviter d'autres utilisateurs à rejoindre votre groupe, partager des liens, commenter les publications, réagir aux posts, et bien plus encore.
 
-## About Laravel
+## Fonctionnalités
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Authentification
+- [ ] **Créer un compte:** Les utilisateurs peuvent créer un compte en fournissant leur adresse e-mail et un mot de passe sécurisé.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Gestion des Groupes
+- [ ] **Créer un groupe:** Les utilisateurs peuvent créer un nouveau groupe en spécifiant un nom pour celui-ci.
+- [ ] **Inviter des utilisateurs:** Les créateurs de groupe peuvent inviter d'autres utilisateurs en utilisant leur adresse e-mail.
+- [ ] **Rejoindre un groupe:** Les utilisateurs peuvent rejoindre un groupe en acceptant une invitation.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Partage de Liens
+- [ ] **Poster un lien:** Les utilisateurs peuvent partager des liens en fournissant l'URL du site et une description.
+- [ ] **Notification de groupe:** Les membres du groupe sont notifiés lorsqu'un nouveau lien est partagé.
 
-## Learning Laravel
+### Commentaires et Réactions
+- [ ] **Ajouter un commentaire:** Les utilisateurs peuvent ajouter des commentaires aux publications.
+- [ ] **Répondre à un commentaire:** Les utilisateurs peuvent répondre aux commentaires existants.
+- [ ] **Notification de commentaire:** Les membres du groupe sont notifiés lorsqu'un nouveau commentaire est ajouté.
+- [ ] **Réagir au post:** Les utilisateurs peuvent réagir rapidement aux posts en utilisant des réactions.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Gestion des Favoris et Recherche
+- [ ] **Mettre en favori:** Les utilisateurs peuvent marquer des posts comme favoris pour les retrouver facilement.
+- [ ] **Recherche de posts:** Les utilisateurs peuvent rechercher des posts en fonction de leur contenu ou de l'utilisateur qui a partagé le lien.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Architecture
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Dans le cadre de l'architecture logicielle de Watchy, nous suivons les principes du Clean Code tout en intégrant des éléments du modèle CQRS (Command Query Responsibility Segregation). Cette approche nous permet de maintenir un code clair, modulaire et facilement évolutif. Au cœur de notre architecture se trouve le domaine métier, où les règles métier et la logique applicative sont encapsulées dans des UseCases. Ces UseCases représentent des scénarios d'utilisation spécifiques de notre application. Ils prennent en entrée des commandes (pour les actions de modification) ou des requêtes (pour les consultations) et produisent des réponses en sortie. Cette division nette entre le domaine métier et l'infrastructure technique garantit une séparation des préoccupations claire. Les détails d'implémentation techniques, tels que la persistance des données ou les appels à des services externes, sont gérés dans la couche d'infrastructure. En adoptant cette approche, nous favorisons la maintenabilité, la testabilité et la scalabilité de notre code tout en assurant une bonne gestion de la complexité.
